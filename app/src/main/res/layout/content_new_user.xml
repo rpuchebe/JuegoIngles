@@ -7,21 +7,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
+    tools:context=".NewUser"
     android:background="@drawable/fondo1">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/NewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        app:borderWidth="0dp"
-        app:elevation="15dp"
-
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,7 +25,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Crear"
         android:layout_marginTop="28dp"
         android:id="@+id/boton"
         android:background="@color/primary"
@@ -75,24 +63,16 @@
         android:layout_alignLeft="@+id/User"
         android:layout_alignStart="@+id/User" />
 
-    <ImageButton
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:id="@+id/imageButton4"
-        android:background="@drawable/icon"
-        android:layout_alignTop="@+id/NewUser"
-        android:layout_alignLeft="@+id/boton"
-        android:layout_alignStart="@+id/boton"
-        android:layout_marginTop="28dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Welcome"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/imageButton4"
-        android:layout_centerHorizontal="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nuevo Usuario"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/User"
+        android:layout_alignEnd="@+id/User"
+        android:layout_marginTop="77dp" />
 
 
 </RelativeLayout>

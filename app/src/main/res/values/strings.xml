@@ -28,4 +28,5 @@
         <item>rat</item>
 
     </string-array>
+    <string name="title_activity_new_user">NewUser</string>
 </resources>
