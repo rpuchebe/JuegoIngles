@@ -31,4 +31,5 @@
     <string name="title_activity_new_user">NewUser</string>
     <string name="title_activity_teacher">Teacher</string>
     <string name="title_activity_lista_curso">ListaCurso</string>
+    <string name="title_activity_student">Student</string>
 </resources>
