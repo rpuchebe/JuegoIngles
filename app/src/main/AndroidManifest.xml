@@ -68,6 +68,10 @@
         <activity
             android:name=".NewUser"
             android:label="@string/title_activity_new_user"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Teacher"
+            android:label="@string/title_activity_teacher"
             android:theme="@style/AppTheme"></activity>
     </application>
 
