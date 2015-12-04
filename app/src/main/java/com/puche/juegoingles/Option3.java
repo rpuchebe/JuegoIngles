@@ -29,6 +29,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
     Button btn;
     EditText editText;
     private String respuesta = "";
+    int puntaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +43,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
         Intent intent =getIntent();
         Bundle extras = intent.getExtras();
         temp = 0;
+        puntaje = 0;
         if(extras!=null){
 
             String dato = extras.getString("USER");
@@ -63,7 +65,15 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
 
                     if (temp==15){
 
-                        Intent intent = new Intent(Option3.this,MainActivity.class);
+
+                        Intent intent = new Intent(Option3.this,Puntaje.class);
+                        String puntajet = ""+puntaje;
+                        ParseObject gameScore = new ParseObject("Puntaje");
+                        String user = texto.getText().toString();
+                        gameScore.put("user",user);
+                        gameScore.put("score", puntaje);
+                        gameScore.saveInBackground();
+                        intent.putExtra("Puntaje",puntajet);
                         startActivity(intent);
 
                     }else {
@@ -115,6 +125,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
                 if (respuesta == editText.getText().toString()) {
 
                     Snackbar.make(v, "Good Job", Snackbar.LENGTH_SHORT).show();
+                    puntaje++;
                     next();
 
                 } else {

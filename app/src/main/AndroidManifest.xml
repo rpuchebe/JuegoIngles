@@ -88,6 +88,10 @@
         <activity
             android:name="com.puche.juegoingles.Letras"
             android:label="@string/title_activity_letras"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.puche.juegoingles.Puntaje"
+            android:label="@string/title_activity_puntaje"
             android:theme="@style/AppTheme"></activity>
     </application>
 
