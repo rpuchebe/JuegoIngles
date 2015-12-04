@@ -56,6 +56,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
 
     public void next() {
 
+        editText.setText("");
         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("attributes");
         query2.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> score, ParseException e) {

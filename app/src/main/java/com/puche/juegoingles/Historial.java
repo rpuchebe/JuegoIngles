@@ -101,10 +101,9 @@ public class Historial extends AppCompatActivity {
                                         int position, long id) {
                     // Send single item click data to SingleItemView Class
                     Intent i = new Intent(Historial.this,
-                            Historial.class);
+                            Teacher.class);
                     // Pass data "name" followed by the position
-                    i.putExtra("score", ob.get(position).getString("username")
-                            .toString());
+
                     // Open SingleItemView.java Activity
                     startActivity(i);
                 }

@@ -55,7 +55,7 @@
     <Button
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Option 3 : Test yourseft"
+        android:text="Option 3 : Test yourself"
         android:id="@+id/option3"
         android:layout_below="@+id/option2"
         android:background="@color/primary"

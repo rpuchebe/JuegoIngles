@@ -41,7 +41,7 @@ public class Puntaje extends AppCompatActivity implements View.OnClickListener{
             case R.id.newgame:
 
                 Intent intent = new Intent(Puntaje.this,SecondActivity.class);
-                intent =getIntent();
+                Intent intent2 =getIntent();
                 Bundle extras = intent.getExtras();
 
                 if(extras!=null){
