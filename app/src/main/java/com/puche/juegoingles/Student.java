@@ -102,7 +102,7 @@ public class Student extends AppCompatActivity {
                                         int position, long id) {
                     // Send single item click data to SingleItemView Class
                     Intent i = new Intent(Student.this,
-                            ListaCurso.class);
+                            Teacher.class);
                     // Pass data "name" followed by the position
                     i.putExtra("username", ob.get(position).getString("username")
                             .toString());

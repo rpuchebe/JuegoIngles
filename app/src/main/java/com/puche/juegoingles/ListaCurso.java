@@ -2,6 +2,7 @@ package com.puche.juegoingles;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -250,6 +251,7 @@ public class ListaCurso extends AppCompatActivity implements View.OnClickListene
 
     public void save() {
 
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Curso");
         query.whereEqualTo("CursoId", cursoname.getText().toString());
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -258,7 +260,8 @@ public class ListaCurso extends AppCompatActivity implements View.OnClickListene
                 if (e == null) {
 
                     ParseObject tempo = curso.get(0);
-                    idtemp = tempo.getString("objectId");
+                    idtemp = tempo.getObjectId();
+
 
                 }
 
@@ -271,6 +274,7 @@ public class ListaCurso extends AppCompatActivity implements View.OnClickListene
                 if (e == null)
 
                 {
+
                     if (a.isChecked() == true) {
                         object.put("a", true);
                         object.saveInBackground();
