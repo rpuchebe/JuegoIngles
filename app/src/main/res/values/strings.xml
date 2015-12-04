@@ -36,4 +36,5 @@
     <string name="title_activity_new_curso">NewCurso</string>
     <string name="title_activity_letras">Letras</string>
     <string name="title_activity_puntaje">Puntaje</string>
+    <string name="title_activity_registro">Registro</string>
 </resources>

@@ -92,6 +92,10 @@
         <activity
             android:name="com.puche.juegoingles.Puntaje"
             android:label="@string/title_activity_puntaje"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.puche.juegoingles.Registro"
+            android:label="@string/title_activity_registro"
             android:theme="@style/AppTheme"></activity>
     </application>
 

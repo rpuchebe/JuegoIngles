@@ -28,7 +28,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
     ImageView img;
     Button btn;
     EditText editText;
-    private String respuesta = "";
+    public String respuesta = "";
     int puntaje;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
         img = (ImageView) findViewById(R.id.img);
         texto = (TextView) findViewById(R.id.texto);
         editText = (EditText) findViewById(R.id.editText2);
-
         btn = (Button) findViewById(R.id.submit);
         btn.setOnClickListener(this);
         Intent intent =getIntent();
@@ -74,6 +73,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
                         gameScore.put("score", puntaje);
                         gameScore.saveInBackground();
                         intent.putExtra("Puntaje",puntajet);
+                        intent.putExtra("USER",texto.getText().toString());
                         startActivity(intent);
 
                     }else {
@@ -81,6 +81,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
                         String pal = ps.getString("Palabra");
                         int Loc = getResources().getIdentifier(pal, "drawable", getPackageName());
                         img.setImageResource(Loc);
+
                         respuesta = pal;
                     }
                 }
@@ -120,9 +121,8 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
             case R.id.submit:
 
                 temp++;
-                Snackbar.make(v, "test"+temp, Snackbar.LENGTH_SHORT).show();
 
-                if (respuesta == editText.getText().toString()) {
+                if (respuesta.equalsIgnoreCase(editText.getText().toString())== true) {
 
                     Snackbar.make(v, "Good Job", Snackbar.LENGTH_SHORT).show();
                     puntaje++;
@@ -130,7 +130,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
 
                 } else {
 
-                    Snackbar.make(v, "Keep Trying", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(v, "Keep Trying "+respuesta+" "+editText.getText().toString(), Snackbar.LENGTH_SHORT).show();
                     next();
                 }
 

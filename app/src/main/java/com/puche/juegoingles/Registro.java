@@ -22,9 +22,10 @@ import com.puche.juegoingles2.R;
 
 import java.util.List;
 
-public class Letras extends AppCompatActivity {
-
+public class Registro extends AppCompatActivity {
+    // Declare Variables
     ListView listview;
+    TextView texto;
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
     ArrayAdapter<String> adapter;
@@ -34,7 +35,7 @@ public class Letras extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from listview_main.xml
-        setContentView(R.layout.activity_student);
+        setContentView(R.layout.activity_registro);
         cursoname = (TextView) findViewById(R.id.cursoname);
 
         Intent intent = getIntent();
@@ -55,7 +56,7 @@ public class Letras extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Create a progressdialog
-            mProgressDialog = new ProgressDialog(Letras.this);
+            mProgressDialog = new ProgressDialog(Registro.this);
             // Set progressdialog title
             mProgressDialog.setTitle("Parse.com Simple ListView");
             // Set progressdialog message
@@ -64,14 +65,12 @@ public class Letras extends AppCompatActivity {
             // Show progressdialog
             mProgressDialog.show();
         }
-
         String cur = cursoname.getText().toString();
-
         @Override
         protected Void doInBackground(Void... params) {
             // Locate the class table named "Country" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Curso");
-            query.whereEqualTo("CursoId", "test");
+
             try {
                 ob = query.find();
             } catch (ParseException e) {
@@ -86,13 +85,11 @@ public class Letras extends AppCompatActivity {
             // Locate the listview in listview_main.xml
             listview = (ListView) findViewById(R.id.listView);
             // Pass the results into an ArrayAdapter
-            adapter = new ArrayAdapter<String>(Letras.this,
+            adapter = new ArrayAdapter<String>(Registro.this,
                     R.layout.listview_item);
             // Retrieve object "name" from Parse.com database
             for (ParseObject User : ob) {
-                
-                adapter.add((String) User.get("username"));
-
+                adapter.add((String) User.get("CursoId"));
             }
             // Binds the Adapter to the ListView
             listview.setAdapter(adapter);
@@ -104,16 +101,22 @@ public class Letras extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
                     // Send single item click data to SingleItemView Class
-                    Intent i = new Intent(Letras.this,
-                            ListaCurso.class);
+                    Intent i = new Intent(Registro.this,
+                            SecondActivity.class);
+                    ParseObject gameScore = new ParseObject("Student");
+                    String user = texto.getText().toString();
+                    gameScore.put("user",user);
+                    gameScore.put("curso", ob.get(position).getString("CursoId")
+                            .toString());
+                    gameScore.saveInBackground();
+
                     // Pass data "name" followed by the position
-                    i.putExtra("username", ob.get(position).getString("username")
+                    i.putExtra("CursoId", ob.get(position).getString("CursoId")
                             .toString());
                     // Open SingleItemView.java Activity
                     startActivity(i);
                 }
             });
         }
-
     }
 }
