@@ -40,8 +40,8 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.MyViewHolder>{
         Information information = data.get(position);
 
         holder.tv.setText(information.title);
-        String Loc = "R.drawable." + information.title;
-        holder.ib.setBackground(Drawable.createFromPath(Loc));
+        int Loc = context.getResources().getIdentifier(information.title,"drawable", context.getPackageName());
+        holder.ib.setBackgroundResource(Loc);
 
     }
 
@@ -53,6 +53,8 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.MyViewHolder>{
     public void setRecyclerClickListner(RecyclerClickListner recyclerClickListner){
         mRecyclerClickListner = recyclerClickListner;
     }
+
+
 
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

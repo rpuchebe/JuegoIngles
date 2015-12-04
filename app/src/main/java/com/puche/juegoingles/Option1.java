@@ -2,6 +2,7 @@ package com.puche.juegoingles;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ import com.puche.juegoingles2.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Option1 extends AppCompatActivity implements ViewAdapter.RecyclerClickListner{
+public class Option1 extends AppCompatActivity implements ViewAdapter.RecyclerClickListner {
     private ArrayList values;
     private List<ParseObject> ob;
 
@@ -30,16 +31,25 @@ public class Option1 extends AppCompatActivity implements ViewAdapter.RecyclerCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option1);
-        texto = (TextView) findViewById(R.id.texto);
 
+        texto = (TextView) findViewById(R.id.texto);
         Intent intent =getIntent();
         Bundle extras = intent.getExtras();
-
         if(extras!=null){
 
             String dato = extras.getString("USER");
             texto.setText(dato);
         }
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.logout);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(Option1.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         new GetData().execute();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycle);

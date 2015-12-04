@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.puche.juegoingles2.R;
+
 public class Student extends AppCompatActivity {
 
     @Override
