@@ -80,6 +80,10 @@
         <activity
             android:name="com.puche.juegoingles.Student"
             android:label="@string/title_activity_student"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.puche.juegoingles.NewCurso"
+            android:label="@string/title_activity_new_curso"
             android:theme="@style/AppTheme"></activity>
     </application>
 

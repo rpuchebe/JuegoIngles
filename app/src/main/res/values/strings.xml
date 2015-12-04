@@ -7,6 +7,7 @@
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="Usuario">Usuario</string>
+    <string name="Curso">Curso</string>
     <string name="title_activity_option1">Option1</string>
     <string name="title_activity_option2">Option2</string>
     <string name="title_activity_option3">Option3</string>
@@ -32,4 +33,5 @@
     <string name="title_activity_teacher">Teacher</string>
     <string name="title_activity_lista_curso">ListaCurso</string>
     <string name="title_activity_student">Student</string>
+    <string name="title_activity_new_curso">NewCurso</string>
 </resources>

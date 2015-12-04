@@ -36,6 +36,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
         img = (ImageView) findViewById(R.id.img);
         texto = (TextView) findViewById(R.id.texto);
         editText = (EditText) findViewById(R.id.editText2);
+
         btn = (Button) findViewById(R.id.submit);
         btn.setOnClickListener(this);
         Intent intent =getIntent();
@@ -47,6 +48,7 @@ public class Option3 extends AppCompatActivity implements View.OnClickListener{
             texto.setText(dato);
         }
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.logout);
+        floatingActionButton.setOnClickListener(this);
         next();
 
     }

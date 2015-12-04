@@ -47,7 +47,7 @@ public class Teacher  extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.fab:
 
-                Intent intent = new Intent(Teacher.this,ListaCurso.class);
+                Intent intent = new Intent(Teacher.this,NewCurso.class);
                 startActivity(intent);
                 break;
             case R.id.logout:
@@ -67,7 +67,7 @@ public class Teacher  extends AppCompatActivity implements View.OnClickListener 
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(Teacher.this);
             // Set progressdialog title
-            mProgressDialog.setTitle("Parse.com Simple ListView Tutorial");
+            mProgressDialog.setTitle("Juego Ingles");
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
