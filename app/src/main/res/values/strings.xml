@@ -37,4 +37,5 @@
     <string name="title_activity_letras">Letras</string>
     <string name="title_activity_puntaje">Puntaje</string>
     <string name="title_activity_registro">Registro</string>
+    <string name="title_activity_historial">Historial</string>
 </resources>

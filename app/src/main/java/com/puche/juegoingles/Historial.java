@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -23,7 +22,7 @@ import com.puche.juegoingles2.R;
 
 import java.util.List;
 
-public class Student extends AppCompatActivity {
+public class Historial extends AppCompatActivity {
     // Declare Variables
     ListView listview;
     List<ParseObject> ob;
@@ -41,13 +40,10 @@ public class Student extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
-
             String dato = extras.getString("CursoId");
             cursoname.setText(dato);
         }
         new RemoteDataTask().execute();
-
-
     }
 
     // RemoteDataTask AsyncTask
@@ -56,7 +52,7 @@ public class Student extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             // Create a progressdialog
-            mProgressDialog = new ProgressDialog(Student.this);
+            mProgressDialog = new ProgressDialog(Historial.this);
             // Set progressdialog title
             mProgressDialog.setTitle("Parse.com Simple ListView");
             // Set progressdialog message
@@ -69,8 +65,8 @@ public class Student extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             // Locate the class table named "Country" in Parse.com
-            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Student");
-            query.whereEqualTo("curso", cur);
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Puntaje");
+            query.whereEqualTo("user", cur);
             try {
                 ob = query.find();
             } catch (ParseException e) {
@@ -85,11 +81,14 @@ public class Student extends AppCompatActivity {
             // Locate the listview in listview_main.xml
             listview = (ListView) findViewById(R.id.listView);
             // Pass the results into an ArrayAdapter
-            adapter = new ArrayAdapter<String>(Student.this,
+            adapter = new ArrayAdapter<String>(Historial.this,
                     R.layout.listview_item);
             // Retrieve object "name" from Parse.com database
-            for (ParseObject User : ob) {
-                adapter.add((String) User.get("username"));
+            for (ParseObject Puntaje : ob) {
+
+                int Temporal = Puntaje.getInt("score");
+                String Punt = ""+ Temporal;
+                adapter.add((String)Punt);
             }
             // Binds the Adapter to the ListView
             listview.setAdapter(adapter);
@@ -101,10 +100,10 @@ public class Student extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
                     // Send single item click data to SingleItemView Class
-                    Intent i = new Intent(Student.this,
+                    Intent i = new Intent(Historial.this,
                             Historial.class);
                     // Pass data "name" followed by the position
-                    i.putExtra("CursoId", ob.get(position).getString("username")
+                    i.putExtra("score", ob.get(position).getString("username")
                             .toString());
                     // Open SingleItemView.java Activity
                     startActivity(i);

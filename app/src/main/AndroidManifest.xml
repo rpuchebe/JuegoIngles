@@ -96,6 +96,10 @@
         <activity
             android:name="com.puche.juegoingles.Registro"
             android:label="@string/title_activity_registro"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.puche.juegoingles.Historial"
+            android:label="@string/title_activity_historial"
             android:theme="@style/AppTheme"></activity>
     </application>
 
