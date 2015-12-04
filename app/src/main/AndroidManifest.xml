@@ -84,6 +84,10 @@
         <activity
             android:name="com.puche.juegoingles.NewCurso"
             android:label="@string/title_activity_new_curso"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.puche.juegoingles.Letras"
+            android:label="@string/title_activity_letras"
             android:theme="@style/AppTheme"></activity>
     </application>
 
